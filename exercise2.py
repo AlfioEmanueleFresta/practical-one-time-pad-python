@@ -2,7 +2,7 @@ from utils import strxor
 from utils.secret import intercept_in, intercept_out
 
 
-x = intercept_in()
+x = intercept_in()  # Intercept the message.
 
 #
 # You have found a way to intercept a one-time pad encrypted message between two
@@ -19,6 +19,4 @@ x = intercept_in()
 
 y = x  # TODO
 
-
-intercept_out(y)
-
+intercept_out(y)  # Forward to the other party.

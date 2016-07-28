@@ -1,14 +1,15 @@
 from utils import strxor, ordinals_to_string, list_of_words
 from itertools import combinations
 
-# Ciphertexts
+
+# Intercepted unintelligible ciphertexts
 c1 = ordinals_to_string([11, 14, 30, 11, 23])
 c2 = ordinals_to_string([21, 10, 27, 29, 1])
 
-# Get a dictionary of words
+# Get a list of English words from a dictionary
 words = list_of_words(of_length=len(c1))
 
-# Get all combinations of two words in the dictionary
+# Get all combinations of two English words (pairs)
 pairs = combinations(words, r=2)
 
 # Get C1 XOR C2
@@ -26,7 +27,7 @@ for m1, m2 in pairs:
         # Calculate the key
         key = strxor(m1, c1)
 
-        # Announce our exiting discovery.
+        # Announce our exciting discovery.
         print("Candidate found: m1='%s', m2='%s', key='%s'"
               % (m1, m2, key))
 
