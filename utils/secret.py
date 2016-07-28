@@ -3,42 +3,53 @@ from utils import strxor
 from random import randint
 
 
-SECRET_KEY = False
+_SECRET_KEY = False
 
 SENDER_TAG =   "    SENDER:"
 RECEIVER_TAG = "  RECEIVER:"
 
+DETERRENT_SECONDS = 1
+
 
 def _get_secret_key(length=None):
 
-    global SECRET_KEY
+    global _SECRET_KEY
 
-    if SECRET_KEY:
-        return SECRET_KEY
+    if _SECRET_KEY:
+        return _SECRET_KEY
 
     if not length:
         raise Exception("Can't generate a SECRET_KEY without a desired length.")
 
-    SECRET_KEY = SECRET_KEY if SECRET_KEY else ''.join([chr(randint(0, 255)) for _ in range(0, length)])
-    return SECRET_KEY
+    _SECRET_KEY = ''.join([chr(randint(0, 255)) for _ in range(0, length)])
+    return _SECRET_KEY
 
 
 def intercept_in():
+
     input_message = "Online=1; UserIsPresident=0; ActivateSuperMassiveBlackHole=0;"
+
+    print("%s A secret key has been generated and given, in person, to the other party." % SENDER_TAG)
     print("%s Sending:  '%s'" % (SENDER_TAG, input_message))
+
+    sleep(DETERRENT_SECONDS)  # Deter brute forcing
+
     secret_key = _get_secret_key(len(input_message))
-    return strxor(input_message, secret_key)
+    ciphertext = strxor(input_message, secret_key)
+
+    return ciphertext
 
 
 def intercept_out(ciphertext):
 
-    sleep(2)  # Add a bit of suspence...
+    sleep(DETERRENT_SECONDS)
 
-    if len(ciphertext) != len(SECRET_KEY):
+    secret_key = _get_secret_key()
+
+    if len(ciphertext) != len(_SECRET_KEY):
         print("%s The received message length is invalid, something must have gone wrong." % RECEIVER_TAG)
         return
 
-    secret_key = _get_secret_key()
     message = strxor(ciphertext, secret_key)
 
     print("%s Received: '%s'" % (RECEIVER_TAG, message))
@@ -64,5 +75,5 @@ def intercept_out(ciphertext):
         return
 
     else:
-        print("%s IDLE - Status report received, thanks." % RECEIVER_TAG)
+        print("%s IDLE." % RECEIVER_TAG)
         return
