@@ -9,7 +9,7 @@ x = intercept_in()  # Intercept the message.
 #  parties: a control station (SENDER) and a powerful top-secret CERN computer (RECEIVER).
 #
 # You don't know the key, but you know what the message contains. You should NOT try to find the key.
-# Being a super villain, you want to change the message so that the RECEIVER activates a super massive black hole.
+# You want to change the message so that the RECEIVER activates a super massive black hole.
 #
 # Hint: Execute this script and listen to what the parties say to each other.
 #
