@@ -41,6 +41,19 @@ def strbin(s, separator=' '):
     return separator.join("{:08b}".format(ord(x)) for x in s)
 
 
+def strpad(s, length, padding=' '):
+    """
+    Pads a string up to a given length.
+    :param s: The string to pad.
+    :param length: The desired length.
+    :param padding: The padding character to use.
+    :return:
+    """
+    while len(s) < length:
+        s += padding
+    return s
+
+
 def ordinals_to_string(list):
     """
     Returns a string from a list of ordinals.

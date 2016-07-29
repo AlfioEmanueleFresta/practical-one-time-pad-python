@@ -1,6 +1,5 @@
 from time import sleep
-from utils import strxor
-from utils.utils import get_random_string
+from utils import strxor, get_random_string
 
 _SECRET_KEY = False
 
