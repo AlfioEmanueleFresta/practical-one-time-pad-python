@@ -1,7 +1,6 @@
 from time import sleep
 from utils import strxor
-from random import randint
-
+from utils.utils import get_random_string
 
 _SECRET_KEY = False
 
@@ -21,7 +20,7 @@ def _get_secret_key(length=None):
     if not length:
         raise Exception("Can't generate a SECRET_KEY without a desired length.")
 
-    _SECRET_KEY = ''.join([chr(randint(0, 255)) for _ in range(0, length)])
+    _SECRET_KEY = get_random_string(length)
     return _SECRET_KEY
 
 
