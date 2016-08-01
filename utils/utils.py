@@ -108,6 +108,9 @@ def get_random_string(length, ord_min=0, ord_max=255):
     return ''.join([chr(randint(ord_min, ord_max)) for _ in range(0, length)])
 
 
+get_human_readable_random_string = lambda length: get_random_string(length, 48, 91)
+
+
 def key_stream_generator(key_length, seed):
     """
     Returns a generator for a key stream, given the seed value
