@@ -1,5 +1,4 @@
-from utils import strxor
-from utils.secret import intercept_in, intercept_out
+from cp_otp import strxor, intercept_in, intercept_out
 
 
 x = intercept_in()  # Intercept the message.

@@ -1,5 +1,6 @@
-from utils import key_stream_generator, get_random_string, get_human_readable_random_string, strpad
-from utils import strxor
+from dictionary import key_stream_generator, get_random_string, get_human_readable_random_string, strpad
+from cp_otp import strxor, intercept_in, intercept_out
+
 
 MESSAGES_LENGTH = 128
 

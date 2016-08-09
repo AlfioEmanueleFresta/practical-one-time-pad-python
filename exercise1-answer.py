@@ -1,10 +1,11 @@
-from utils import strxor, ordinals_to_string, list_of_words
+from cp_otp import strxor
+from cp_dictionary import list_of_words
 from itertools import combinations
 
 
 # Intercepted unintelligible ciphertexts
-c1 = ordinals_to_string([11, 14, 30, 11, 23])
-c2 = ordinals_to_string([21, 10, 27, 29, 1])
+c1 = b'\x0b\x0e\x1e\x0b\x17'
+c2 = b'\x15\x0a\x1b\x1d\x01'
 
 # Get a list of English words from a dictionary
 words = list_of_words(of_length=len(c1))
