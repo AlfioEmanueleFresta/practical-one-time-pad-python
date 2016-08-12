@@ -27,7 +27,7 @@ pairs = combinations(words, r=2)
 # Hint: Remember that
 #       A XOR B     equals    (A XOR C) XOR (B XOR C)
 #
-# Hint: How is the cipertext obtained, from the message?
+# Hint: How is the ciphertext obtained, from the message?
 #
 
 ## TODO Find possible word pairs.
